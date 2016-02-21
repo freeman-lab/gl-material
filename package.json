@@ -1,0 +1,37 @@
+{
+  "name": "gl-scene-material",
+  "version": "1.0.0",
+  "description": "define materials for 3d scenes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freeman-lab/gl-scene-material.git"
+  },
+  "keywords": [
+    "webgl",
+    "3d",
+    "scene",
+    "material",
+    "shader",
+    "fragment",
+    "stackgl"
+  ],
+  "author": "freeman-lab",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freeman-lab/gl-scene-material/issues"
+  },
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
+  },
+  "homepage": "https://github.com/freeman-lab/gl-scene-material#readme",
+  "dependencies": {
+    "gl-shader": "^4.2.0",
+    "glslify": "^5.0.2"
+  }
+}
