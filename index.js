@@ -13,7 +13,7 @@ function Material (gl, data, constants) {
   var fragment = data.fragment
 
   _.forEach(constants, function (value, key) {
-    var re = new RegExp('{{ ' + key + ' }}', 'g')
+    var re = new RegExp(key, 'g')
     fragment = fragment.replace(re, value)
   })
 
