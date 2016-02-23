@@ -8,7 +8,7 @@ Current list of materials published as modules:
 - [gl-scene-lambert-material](https://github.com/freeman-lab/gl-scene-lambert-material)
 - [gl-scene-normal-material](https://github.com/freeman-lab/gl-scene-normal-material)
 
-If you make a new one just publish it as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list.
+If you make a new one just publish it as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list!
 
 ## install
 
@@ -19,7 +19,7 @@ npm install gl-scene-material
 
 ## schema
 
-Here's a simple example of the schema for a material that just sets color
+Here's a simple example of the schema, for a material that just sets color
 
 ```javascript
 {
