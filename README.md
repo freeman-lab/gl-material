@@ -1,19 +1,48 @@
 # gl-scene-material
 
-define materials for 3d scenes 
+Reusable materials for 3d scenes for use with [`stack.gl`](http://stack.gl). A `material` is defined simply as an object with two properties, a list of uniforms and a fragment shader, where the uniforms are grouped together into a struct in the shader.
 
-To conform to the `gl-scene-material` API...
+This module takes one of these objects and generates a compiled shader program, by adding a vertex shader, and optionally performing string replacement on the fragment shader for any constants.
 
-Your fragment shader will have access to 
+Here are example materials:
 
-- vuv
-- vnormal
-- vposition
-- eye
-- lighting
 
-and can otherwise do whatever you want
+If you make a new one just publish it as `gl-scene-x-material`!
 
-for any uniforms that you want to use for styling, define a Style 
+## install
 
-the fo
+Add to your project with
+```
+npm install gl-scene-material
+```
+
+## example 
+
+Generate a `normal` material 
+
+```javascript
+var normal = require('gl-scene-normal-material')
+var material = require('gl-scene-material')(gl, normal)
+```
+
+Generate a `lambert` material, additionally specifying the number of lights
+
+```javascript
+var lambert = require('gl-scene-lambert-material')
+var material = require('gl-scene-material')(gl, lambert, {LIGHTCOUNT: 1})
+```
+
+## usage
+
+##### var material = require('gl-scene-material')(gl, data, [constants])
+
+Generate a compiled shader for your material 
+
+Inputs
+- `gl` webgl context
+- `data` object with material data
+- `constants` optional
+
+Ouput
+- `material.shader` compiled shader
+- `material.defaults` default value for each uniform
