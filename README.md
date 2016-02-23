@@ -4,7 +4,22 @@ Reusable materials for 3d scenes. Works well with [`gl-scene`](https://github.co
 
 A `material` is defined simply as an object with two properties, a set of `uniforms` and a `fragment` shader, where the uniforms are grouped together into a struct in the shader. This module takes one of these objects and generates a compiled shader program, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for any constants.
 
-Here's a simple example of a material
+Current list of materials published as modules:
+- [gl-scene-lambert-material](https://github.com/freeman-lab/gl-scene-lambert-material)
+- [gl-scene-normal-material](https://github.com/freeman-lab/gl-scene-normal-material)
+
+If you make a new one just publish it as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list.
+
+## install
+
+Add to your project with
+```
+npm install gl-scene-material
+```
+
+## schema
+
+Here's a simple example of the schema for a material that just sets color
 
 ```javascript
 {
@@ -21,19 +36,6 @@ Here's a simple example of a material
 		color: {type: 'vec3', default: [0, 0, 0]}
 	}
 }
-```
-
-List of materials:
-- [gl-scene-lambert-material](https://github.com/freeman-lab/gl-scene-lambert-material)
-- [gl-scene-normal-material](https://github.com/freeman-lab/gl-scene-normal-material)
-
-If you make a new one just publish it as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list.
-
-## install
-
-Add to your project with
-```
-npm install gl-scene-material
 ```
 
 ## example 
