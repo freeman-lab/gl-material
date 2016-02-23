@@ -2,7 +2,26 @@
 
 Reusable materials for 3d scenes for use with [`stack.gl`](http://stack.gl). Works well with [`gl-scene`](https://github.com/freeman-lab/gl-scene) but can also be used on its own.
 
-A `material` is defined simply as an object with two properties, a list of uniforms and a fragment shader, where the uniforms are grouped together into a struct in the shader. This module takes one of these objects and generates a compiled shader program, by adding a vertex shader, and optionally performing string replacement on the fragment shader for any constants.
+A `material` is defined simply as an object with two properties, a set of `uniforms` and a `fragment` shader, where the uniforms are grouped together into a struct in the shader. This module takes one of these objects and generates a compiled shader program, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for any constants.
+
+Here's a simple example of a material
+
+```javascript
+{
+	fragment: `
+		precision highp float;
+		struct Style {
+			vec3 color;
+		}
+		uniform Style style
+		void main() {
+	  		gl_FragColor = vec4(style.color, 0.5);
+		}`,
+	uniforms: {
+		color: {type: 'vec3', default: [0, 0, 0]}
+	}
+}
+```
 
 Here are example materials:
 - [lambert](https://github.com/freeman-lab/gl-scene-lambert-material)
