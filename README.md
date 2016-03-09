@@ -2,17 +2,26 @@
 
 Reusable materials for 3d scenes. Works well with [`gl-scene`](https://github.com/freeman-lab/gl-scene) but can also be used on its own.
 
-A `material` is defined as an object with three properties: a `style` definition, a `fragment` shader, and a `name`. The `style` corresponds to a single struct in the shader, passed as a uniform, that contains all adjustable parameters. We specify in our material definition all accepted styles, their types, and their default values.
+A `material` is defined as an object with three properties:
+- a `style` definition
+- a `fragment` shader
+- a `name`
 
-This module takes one of these objects and generates a compiled shader program with `gl-shader` and `glslify`, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for constants. The vertex shader has common attributes like `position` and `normal` and uniform matrices like `view` and `projection`, see below for more information.
+The `style` corresponds to a single struct in the shader, passed as a uniform, that contains all adjustable parameters. We specify in our material definition all accepted styles, their types, and their default values.
 
-Why is this useful? By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and makes it easy to specify shaders alongside their parameters. You can also use `gl-scene-demo-material` to demo your material with an interactive panel for setting its parameters.
+This module takes one of these objects and generates a compiled shader program using `gl-shader` and `glslify`, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for constants. The vertex shader has common attributes like `position` and `normal` and uniform matrices like `view` and `projection`, see below for more information.
 
-Current list of materials published as `npm` modules:
+Why is this useful? By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and makes it easy to specify shaders alongside their parameters. 
+
+You can also use `gl-scene-demo-material` to demo your material with an interactive panel for setting its parameters.
+
+## list of materials
+
+These materials are published as npm modules:
 - [gl-scene-lambert-material](https://github.com/freeman-lab/gl-scene-lambert-material)
 - [gl-scene-normal-material](https://github.com/freeman-lab/gl-scene-normal-material)
 
-If you make a new one just publish it to npm as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list!
+If you make one, publish it to npm as `gl-scene-x-material`, and submit a PR to this repo to add it to the list!
 
 ## install
 
