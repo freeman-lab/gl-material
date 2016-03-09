@@ -30,9 +30,9 @@ Add to your project with
 npm install gl-scene-material
 ```
 
-## definition
+## example
 
-Here's a simple example of the schema for a material that's determined by a color
+Here's the definition of a flat material determined by a color:
 
 ```javascript
 var flat = {
@@ -46,25 +46,16 @@ var flat = {
 	  		gl_FragColor = vec4(style.color, 1.0);
 		}`,
 	style: {
-		color: {type: 'vec3', default: [0, 0, 0]}
+		color: {type: 'vec3', default: [0, 100, 0]}
 	},
 	name: 'my-flat-material'
 }
 ```
 
-## example 
-
-We can take our custom material definition above and construct a compiled shader program
+and we can construct a compiled shader program from this object
 
 ```javascript
 var material = require('gl-scene-material')(gl, flat)
-```
-
-Or use a material from another module
-
-```javascript
-var normal = require('gl-scene-normal-material')
-var material = require('gl-scene-material')(gl, normal)
 ```
 
 ## usage
