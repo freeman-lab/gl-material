@@ -1,22 +1,20 @@
 var shader = require('gl-shader')
 var glslify = require('glslify')
-var _ = require('lodash')
+var foreach = require('lodash.foreach')
+var mapvalues = require('lodash.mapvalues')
 
-module.exports = Material
+module.exports = function material (gl, data, constants) {
+  if (!gl) throw Error('Must provide a weblgl context')
+  if (!data) throw Error('Must provide material data shader')
+  if (!data.fragment) throw Error('Must provide fragment shader')
 
-function Material (gl, data, constants) {
-  if (!(this instanceof Material)) return new Material(gl, data, constants)
-  if (!gl) throw Error ("Must provide a weblgl context")  
-  if (!data.fragment) throw Error ("Must provide a fragment shader")
-  var self = this
-
-  var fragment = data.fragment
-
-  _.forEach(constants, function (value, key) {
+  foreach(constants, function (value, key) {
     var re = new RegExp(key, 'g')
-    fragment = fragment.replace(re, value)
+    data.fragment = data.fragment.replace(re, value)
   })
 
-  self.shader = shader(gl, glslify('./vertex.glsl'), fragment)
-  self.defaults = _.mapValues(data.uniforms, 'default')
+  return {
+    shader: shader(gl, glslify('./vertex.glsl'), data.fragment),
+    defaults: mapvalues(data.style, 'default')
+  }
 }
