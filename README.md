@@ -72,18 +72,18 @@ The result has two properties
 
 The included **vertex shader** is generic, and has the following properties, which should cover a variety of use cases:
 
-attributes
+*attributes*
 - `position` vec3
 - `normal` vec3
 - `uv` vec3
 
-uniforms
+*uniforms*
 - `projection` mat4
 - `view` mat4
 - `model` mat4
 - `modelNormal` mat3
 
-varying properties provided to the **fragment shader**
+*varying* properties provided to the **fragment shader**
 - `vposition` vec3
 - `vnormal` vec3
 - `vuv` vec3
