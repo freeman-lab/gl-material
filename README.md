@@ -7,13 +7,20 @@ A **material** is defined as an object with three properties:
 - `styles` a object describing all parameters that can vary, grouped into a single struct in the shader
 - `name` a string
 
-**Why is this useful?** By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and lets us specify shaders alongside their parameters. 
+**Why is this useful?** By using a common format, we can publish and share materials as npm modules! It's slightly higher level than publishing raw shader code, and lets us specify shaders alongside their parameters. 
 
-This module takes an object in the standard format and generates a compiled shader program using `gl-shader` and `glslify`, by adding a generic vertex shader (see below), and optionally performing string replacement for constants.
+This module exposes a single function that takes an object in the standard format and generates a compiled shader program using [`gl-shader`](https://github.com/stackgl/gl-shader) and [`glslify`](https://github.com/stackgl/glslify), by adding a generic vertex shader (see below), and optionally performing string replacement for constants.
 
-## related
+## install
 
-The following modules help working with materials:
+Add to your project with
+```
+npm install gl-material
+```
+
+## modules
+
+The following modules can help you work with materials:
 - [`gl-demo-material`](http://github.com/freeman-lab/gl-demo-material) demo your material with an interactive style panel
 - [`gl-test-material`](http://github.com/freeman-lab/gl-test-material) validate your material with predefined tests
 
@@ -23,12 +30,6 @@ And the following materials are published as npm modules:
 
 If you make one, publish it to npm as `gl-material-x`, and submit a PR to this repo to add it to the list!
 
-## install
-
-Add to your project with
-```
-npm install gl-material
-```
 
 ## example
 
@@ -77,7 +78,7 @@ The included **vertex shader** is generic, and has the following properties, whi
 *attributes*
 - `position` vec3
 - `normal` vec3
-- `uv` vec3
+- `uv` vec2
 
 *uniforms*
 - `projection` mat4
