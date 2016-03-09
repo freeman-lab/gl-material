@@ -73,20 +73,20 @@ The result has two properties
 
 ## vertex shader
 
-The included vertex shader is fairly generic, and should cover most use cases in basic scene rendering. It supports:
+The included vertex shader is fairly generic, and should cover most use cases in basic scene rendering:
 
-A set of attributes:
+Attributes:
 - `position` vec3
 - `normal` vec3
 - `uv` vec3
 
-A set of uniforms:
+Uniforms:
 - `projection` mat4
 - `view` mat4
 - `model` mat4
 - `modelNormal` mat3
 
-A set of varying properties provided to the fragment shader:
+Varying properties provided to the fragment shader:
 - `vposition` vec3
 - `vnormal` vec3
 - `vuv` vec3
