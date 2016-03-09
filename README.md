@@ -26,7 +26,7 @@ npm install gl-scene-material
 Here's a simple example of the schema for a material that's determined by a color
 
 ```javascript
-{
+var flat = {
 	fragment: `
 		precision highp float;
 		struct Style {
@@ -39,24 +39,23 @@ Here's a simple example of the schema for a material that's determined by a colo
 	style: {
 		color: {type: 'vec3', default: [0, 0, 0]}
 	},
-	name: 'my-cool-material'
+	name: 'my-flat-material'
 }
 ```
 
 ## example 
 
-Generate a `normal` material 
+We can take our custom material definition above and construct a compiled shader program
+
+```javascript
+var material = require('gl-scene-material')(gl, flat)
+```
+
+Or use a material from another module
 
 ```javascript
 var normal = require('gl-scene-normal-material')
 var material = require('gl-scene-material')(gl, normal)
-```
-
-Generate a `lambert` material, additionally specifying the number of lights as 1
-
-```javascript
-var lambert = require('gl-scene-lambert-material')
-var material = require('gl-scene-material')(gl, lambert, {LIGHTCOUNT: 1})
 ```
 
 ## usage
@@ -66,7 +65,7 @@ var material = require('gl-scene-material')(gl, lambert, {LIGHTCOUNT: 1})
 Generate a compiled shader program for your material by providing these arguments
 - `gl` webgl context
 - `data` object with material data
-- `constants` optional mapping from string keys to values with which to replace them
+- `constants` optional mapping from string keys to values with which to replace them, e.g `{LIGHTCOUNT: 1}`
 
 The result has two properties
 - `material.shader` compiled shader program
@@ -74,20 +73,20 @@ The result has two properties
 
 ## vertex shader
 
-The included vertex shader is fairly generic. It supports:
+The included vertex shader is fairly generic, and should cover most use cases in basic scene rendering. It supports:
 
-a set of attributes:
+A set of attributes:
 - `position` vec3
 - `normal` vec3
 - `uv` vec3
 
-a set of uniforms:
+A set of uniforms:
 - `projection` mat4
 - `view` mat4
 - `model` mat4
 - `modelNormal` mat3
 
-a set of varying properties provided to the fragment shader:
+A set of varying properties provided to the fragment shader:
 - `vposition` vec3
 - `vnormal` vec3
 - `vuv` vec3
