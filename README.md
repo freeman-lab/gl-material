@@ -69,7 +69,7 @@ Generate a compiled shader program for your material by providing these argument
 
 The result has two properties
 - `material.shader` compiled shader program
-- `material.defaults` default value for each uniform
+- `material.defaults` default value for each style
 
 ## vertex shader
 
