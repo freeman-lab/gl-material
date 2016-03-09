@@ -1,5 +1,5 @@
 {
-  "name": "gl-scene-material",
+  "name": "gl-material",
   "version": "1.0.0",
   "description": "define materials for 3d scenes",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freeman-lab/gl-scene-material.git"
+    "url": "git+https://github.com/freeman-lab/gl-material.git"
   },
   "keywords": [
     "webgl",
@@ -22,14 +22,14 @@
   "author": "freeman-lab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/freeman-lab/gl-scene-material/issues"
+    "url": "https://github.com/freeman-lab/gl-material/issues"
   },
   "browserify": {
     "transform": [
       "glslify"
     ]
   },
-  "homepage": "https://github.com/freeman-lab/gl-scene-material#readme",
+  "homepage": "https://github.com/freeman-lab/gl-material#readme",
   "dependencies": {
     "gl-shader": "^4.2.0",
     "glslify": "^5.0.2",

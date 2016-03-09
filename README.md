@@ -25,7 +25,7 @@ If you make one, publish it to npm as `gl-material-x`, and submit a PR to this r
 
 Add to your project with
 ```
-npm install gl-scene-material
+npm install gl-material
 ```
 
 ## example
@@ -52,12 +52,12 @@ var flat = {
 and we can construct a compiled shader program from this object
 
 ```javascript
-var material = require('gl-scene-material')(gl, flat)
+var material = require('gl-material')(gl, flat)
 ```
 
 ## usage
 
-#### `material = require('gl-scene-material')(gl, data, [constants])`
+#### `material = require('gl-material')(gl, data, [constants])`
 
 Generate a compiled shader program for your material by providing these arguments
 - `gl` webgl context
