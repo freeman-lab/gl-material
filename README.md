@@ -3,9 +3,9 @@
 Standard format and constructor for reusable 3d materials.
 
 A `material` is defined as an object with three properties:
-- a `style` definition
-- a `fragment` shader
-- a `name`
+- a style definition
+- a fragment shader
+- a name
 
 The `style` corresponds to a single struct in the shader, passed as a uniform, that contains all adjustable parameters. We specify in our material definition all accepted styles, their types, and their default values.
 
