@@ -1,6 +1,6 @@
 # gl-material
 
-Standard format for reusable 3d materials.
+Standard format and constructor for reusable 3d materials.
 
 A `material` is defined as an object with three properties:
 - a `style` definition
