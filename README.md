@@ -1,6 +1,8 @@
 # gl-material
 
-Standard definition for reusable 3d materials! A `material` is an object with three properties:
+Standard format for reusable 3d materials.
+
+A `material` is defined as an object with three properties:
 - a `style` definition
 - a `fragment` shader
 - a `name`
