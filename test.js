@@ -19,7 +19,6 @@ test('construction', function (t) {
   t.end()
 })
 
-
 test('replacement', function (t) {
   var flat = {
     fragment: 'precision highp float; uniform vec3 test[COUNT]; struct Style {vec3 color;};uniform Style style;void main() {gl_FragColor = vec4(style.color, 1.0);}',
