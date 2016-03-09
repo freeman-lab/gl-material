@@ -9,9 +9,9 @@ A `material` is defined as an object with three properties:
 
 The `style` corresponds to a single struct in the shader, passed as a uniform, that contains all adjustable parameters. We specify in our material definition all accepted styles, their types, and their default values.
 
-**Why is this useful?** By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and makes it easy to specify shaders alongside their parameters. 
+**Why is this useful?** By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and lets us specify shaders alongside their parameters. 
 
-This module takes one of these objects and generates a compiled shader program using `gl-shader` and `glslify`, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for constants. The vertex shader has common attributes like `position` and `normal` and uniform matrices like `view` and `projection`, see below for more information.
+This module takes an object in the standard format and generates a compiled shader program using `gl-shader` and `glslify`, by adding a generic vertex shader (see below), and optionally performing string replacement for constants.
 
 You can also use `gl-demo-material` to demo your material with an interactive panel for setting its parameters.
 
