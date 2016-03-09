@@ -11,13 +11,13 @@ A **material** is defined as an object with three properties:
 
 This module takes an object in the standard format and generates a compiled shader program using `gl-shader` and `glslify`, by adding a generic vertex shader (see below), and optionally performing string replacement for constants.
 
-You can use `gl-demo-material` to demo your material with an interactive panel for setting its parameters.
+You can use [`gl-demo-material`](http://github.com/freeman-lab/gl-demo-material) to demo your material with an interactive panel for setting its parameters, and [`gl-test-material`](http://github.com/freeman-lab/gl-test-material) to validate your material.
 
 ## list of materials
 
 These materials are published as npm modules:
-- [gl-lambert-material](https://github.com/freeman-lab/gl-lambert-material)
-- [gl-normal-material](https://github.com/freeman-lab/gl-normal-material)
+- [gl-material-lambert](https://github.com/freeman-lab/gl-material-lambert)
+- [gl-material-normal](https://github.com/freeman-lab/gl-material-normal)
 
 If you make one, publish it to npm as `gl-material-x`, and submit a PR to this repo to add it to the list!
 
