@@ -2,13 +2,17 @@
 
 Reusable materials for 3d scenes. Works well with [`gl-scene`](https://github.com/freeman-lab/gl-scene) but can also be used on its own.
 
-A `material` is defined simply as an object with two properties, a set of `uniforms` and a `fragment` shader, where the uniforms are grouped together into a single struct. This module takes one of these objects and generates a compiled shader program, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for any constants.
+A `material` is defined as an object with three properties: a `style` definition, a `fragment` shader, and a `name`. The `style` corresponds to a single struct in the shader, passed as a uniform, that contains all adjustable parameters. We specify in our material definition all accepted styles, their types, and their default values.
+
+This module takes one of these objects and generates a compiled shader program with `gl-shader` and `glslify`, by adding a generic vertex shader, and optionally performing string replacement on the fragment shader for constants. The vertex shader has common attributes like `position` and `normal` and uniform matrices like `view` and `projection`, see below for more information.
+
+Why is this useful? By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and makes it easy to specify shaders alongside their parameters. You can also use `gl-scene-demo-material` to demo your material with an interactive panel for setting its parameters.
 
 Current list of materials published as `npm` modules:
 - [gl-scene-lambert-material](https://github.com/freeman-lab/gl-scene-lambert-material)
 - [gl-scene-normal-material](https://github.com/freeman-lab/gl-scene-normal-material)
 
-If you make a new one just publish it as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list!
+If you make a new one just publish it to npm as `gl-scene-x-material`, and submit a pull request to this repo to add it to the list!
 
 ## install
 
@@ -17,7 +21,7 @@ Add to your project with
 npm install gl-scene-material
 ```
 
-## schema
+## definition
 
 Here's a simple example of the schema for a material that's determined by a color
 
@@ -30,11 +34,12 @@ Here's a simple example of the schema for a material that's determined by a colo
 		}
 		uniform Style style
 		void main() {
-	  		gl_FragColor = vec4(style.color, 0.5);
+	  		gl_FragColor = vec4(style.color, 1.0);
 		}`,
-	uniforms: {
+	style: {
 		color: {type: 'vec3', default: [0, 0, 0]}
-	}
+	},
+	name: 'my-cool-material'
 }
 ```
 
@@ -56,15 +61,33 @@ var material = require('gl-scene-material')(gl, lambert, {LIGHTCOUNT: 1})
 
 ## usage
 
-##### `var material = require('gl-scene-material')(gl, data, [constants])`
+#### `material = require('gl-scene-material')(gl, data, [constants])`
 
-Generate a compiled shader for your material 
-
-Inputs
+Generate a compiled shader program for your material by providing these arguments
 - `gl` webgl context
 - `data` object with material data
-- `constants` optional mapping from keys to values to replace
+- `constants` optional mapping from string keys to values with which to replace them
 
-Ouput
+The result has two properties
 - `material.shader` compiled shader program
 - `material.defaults` default value for each uniform
+
+## vertex shader
+
+The included vertex shader is fairly generic. It supports:
+
+a set of attributes:
+- `position` vec3
+- `normal` vec3
+- `uv` vec3
+
+a set of uniforms:
+- `projection` mat4
+- `view` mat4
+- `model` mat4
+- `modelNormal` mat3
+
+a set of varying properties provided to the fragment shader:
+- `vposition` vec3
+- `vnormal` vec3
+- `vuv` vec3
