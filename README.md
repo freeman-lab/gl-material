@@ -70,7 +70,7 @@ The result has two properties
 
 ## vertex shader
 
-The included **vertex shader** is fairly generic, and has the following properties, which should cover a variety of use cases:
+The included **vertex shader** is generic, and has the following properties, which should cover a variety of use cases:
 
 attributes
 - `position` vec3
