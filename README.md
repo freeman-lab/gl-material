@@ -4,7 +4,7 @@ Standard format and constructor for reusable 3d materials.
 
 A **material** is defined as an object with three properties:
 - `fragment` a fragment shader
-- `style` a object with all variable parameters, their types, and default values, corresponding to a single struct in the shader
+- `style` a object describing all variable parameters, corresponding to a single struct in the shader
 - `name` a string
 
 **Why is this useful?** By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and lets us specify shaders alongside their parameters. 
