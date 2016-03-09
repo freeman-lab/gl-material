@@ -1,5 +1,9 @@
 # gl-material
 
+[![NPM version][npm-image]][npm-url]
+![experimental][experimental-image]
+[![js-standard-style][standard-image]][standard-url]
+
 Standard format and constructor for reusable 3d materials.
 
 A **material** is defined as an object with three properties:
@@ -90,3 +94,9 @@ The included **vertex shader** is generic, and has the following properties, whi
 - `vposition` vec3
 - `vnormal` vec3
 - `vuv` vec3
+
+[npm-image]: https://img.shields.io/badge/npm-v1.0.0-lightgray.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/control-panel
+[standard-image]: https://img.shields.io/badge/code%20style-standard-lightgray.svg?style=flat-square
+[standard-url]: https://github.com/feross/standard
+[experimental-image]: https://img.shields.io/badge/stability-experimental-lightgray.svg?style=flat-square
