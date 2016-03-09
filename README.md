@@ -4,7 +4,7 @@ Standard format and constructor for reusable 3d materials.
 
 A **material** is defined as an object with three properties:
 - `fragment` a fragment shader
-- `style` a object describing all parameters that can vary, corresponding to a single struct in the shader
+- `styles` a object describing all parameters that can vary, corresponding to a single struct in the shader
 - `name` a string
 
 **Why is this useful?** By using a common format, we can publish materials as modules to npm! It's slightly higher level than publishing raw shader code, and lets us specify shaders alongside their parameters. 
@@ -44,7 +44,7 @@ var flat = {
 		void main() {\
 			gl_FragColor = vec4(style.color, 1.0);\
 		}`
-	style: {
+	styles: {
 		color: {type: 'vec3', default: [0, 100, 0]}
 	},
 	name: 'my-flat-material'

@@ -15,6 +15,6 @@ module.exports = function material (gl, data, constants) {
 
   return {
     shader: shader(gl, glslify('./vertex.glsl'), data.fragment),
-    defaults: mapvalues(data.style, 'default')
+    defaults: mapvalues(data.styles, 'default')
   }
 }

@@ -8,7 +8,7 @@ var gl = context(canvas)
 test('construction', function (t) {
   var flat = {
     fragment: 'precision highp float; struct Style {vec3 color;};uniform Style style;void main() {gl_FragColor = vec4(style.color, 1.0);}',
-    style: {
+    styles: {
       color: {type: 'vec3', default: [0, 100, 0]}
     },
     name: 'my-flat-material'
@@ -22,7 +22,7 @@ test('construction', function (t) {
 test('replacement', function (t) {
   var flat = {
     fragment: 'precision highp float; uniform vec3 test[COUNT]; struct Style {vec3 color;};uniform Style style;void main() {gl_FragColor = vec4(style.color, 1.0);}',
-    style: {
+    styles: {
       color: {type: 'vec3', default: [0, 100, 0]}
     },
     name: 'my-flat-material'
@@ -37,7 +37,7 @@ test('replacement', function (t) {
 test('multiple replacement', function (t) {
   var flat = {
     fragment: 'precision highp float; uniform vec3 a[COUNT]; uniform vec3 b[COUNT]; struct Style {vec3 color;};uniform Style style;void main() {gl_FragColor = vec4(style.color, 1.0);}',
-    style: {
+    styles: {
       color: {type: 'vec3', default: [0, 100, 0]}
     },
     name: 'my-flat-material'
