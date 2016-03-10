@@ -25,14 +25,14 @@ npm install gl-material
 ## modules
 
 The following modules can help you work with materials:
-- [`gl-demo-material`](http://github.com/freeman-lab/gl-demo-material) demo your material with an interactive style panel
-- [`gl-test-material`](http://github.com/freeman-lab/gl-test-material) validate your material with predefined tests
+- [`gl-material-demo`](http://github.com/freeman-lab/gl-material-demo) demo your material with an interactive style panel
+- [`gl-material-test`](http://github.com/freeman-lab/gl-material-test) validate your material with predefined tests
 
 And the following materials are published as npm modules:
-- [`gl-material-lambert`](https://github.com/freeman-lab/gl-material-lambert)
-- [`gl-material-normal`](https://github.com/freeman-lab/gl-material-normal)
+- [`gl-lambert-material`](https://github.com/freeman-lab/gl-lambert-material)
+- [`gl-normal-material`](https://github.com/freeman-lab/gl-normal-material)
 
-If you make one, publish it to npm as `gl-material-x`, and submit a PR to this repo to add it to the list!
+If you make one, publish it to npm as `gl-x-material`, and submit a PR to this repo to add it to the list!
 
 
 ## example
