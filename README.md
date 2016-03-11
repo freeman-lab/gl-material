@@ -96,7 +96,7 @@ The included **vertex shader** is generic, and has the following properties, whi
 - `vuv` vec3
 
 [npm-image]: https://img.shields.io/badge/npm-v1.0.0-lightgray.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/control-panel
+[npm-url]: https://npmjs.org/package/gl-material
 [standard-image]: https://img.shields.io/badge/code%20style-standard-lightgray.svg?style=flat-square
 [standard-url]: https://github.com/feross/standard
 [experimental-image]: https://img.shields.io/badge/stability-experimental-lightgray.svg?style=flat-square
